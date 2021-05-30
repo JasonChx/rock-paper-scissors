@@ -22,11 +22,11 @@ public class GameController {
     @Autowired
     private RecordService recordService;
 
-    @GetMapping(path="/play", produces = "application/json")
-    public String play(String player, String shape){
-        if(!playerService.existsByName(player)){
+    @GetMapping(path = "/play", produces = "application/json")
+    public String play(String player, String shape) {
+        if (!playerService.existsByName(player)) {
             return "Error: Player '" + player + "' does not exist!";
-        } else if(!ShapeType.exist(shape)){
+        } else if (!ShapeType.exist(shape)) {
             return "Error: Shape '" + shape + "' does not exist! Please select from 'Rock','Paper' and 'Scissors' only";
         } else {
             ShapeType applicationShape = ShapeType.randomShape();
@@ -37,11 +37,11 @@ public class GameController {
         }
     }
 
-    private OutcomeType getOutcome(ShapeType playerShape, ShapeType applicationShape){
-        if(playerShape.equals(applicationShape)){
+    private OutcomeType getOutcome(ShapeType playerShape, ShapeType applicationShape) {
+        if (playerShape.equals(applicationShape)) {
             return OutcomeType.DRAW;
-        } else if(playerShape.getValue() - applicationShape.getValue() == 1
-                || applicationShape.getValue() - playerShape.getValue() == 2){
+        } else if (playerShape.getValue() - applicationShape.getValue() == 1
+                || applicationShape.getValue() - playerShape.getValue() == 2) {
             return OutcomeType.WIN;
         }
         return OutcomeType.LOSS;

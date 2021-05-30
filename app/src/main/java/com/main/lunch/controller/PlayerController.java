@@ -19,14 +19,14 @@ public class PlayerController {
     @Autowired
     private RecordService recordService;
 
-    @GetMapping(path="/getList", produces = "application/json")
-    public List<String> getList(){
+    @GetMapping(path = "/getList", produces = "application/json")
+    public List<String> getList() {
         return playerService.getNameList();
     }
 
-    @GetMapping(path="/getStatistics", produces = "application/json")
-    public String getStatistics(String player){
-        if(!playerService.existsByName(player)){
+    @GetMapping(path = "/getStatistics", produces = "application/json")
+    public String getStatistics(String player) {
+        if (!playerService.existsByName(player)) {
             return "Error: Player '" + player + "' does not exist!";
         } else {
             return recordService.getStatisticsForPlayer(playerService.findByName(player));

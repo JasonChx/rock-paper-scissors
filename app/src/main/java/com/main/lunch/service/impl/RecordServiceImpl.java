@@ -20,7 +20,7 @@ public class RecordServiceImpl implements RecordService {
         long wins = recordRepo.countByPlayerAndOutcome(player, OutcomeType.WIN);
         long losses = recordRepo.countByPlayerAndOutcome(player, OutcomeType.LOSS);
         long draws = recordRepo.countByPlayerAndOutcome(player, OutcomeType.DRAW);
-        return "Player '"+ player.getName() +"' played " +rounds+ " round(s), "+ "wins: " +wins+ " losses: "+losses+ " and draws: "+draws;
+        return "Player '" + player.getName() + "' played " + rounds + " round(s), " + "wins: " + wins + " losses: " + losses + " and draws: " + draws;
     }
 
     @Override

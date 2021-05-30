@@ -36,7 +36,7 @@ public enum ShapeType {
         return null;
     }
 
-    public static boolean exist(String name){
+    public static boolean exist(String name) {
         for (ShapeType type : values()) {
 
             if (type.getName().equalsIgnoreCase(name)) {
@@ -51,7 +51,7 @@ public enum ShapeType {
     private static final int SIZE = VALUES.size();
     private static final Random RANDOM = new Random();
 
-    public static ShapeType randomShape()  {
+    public static ShapeType randomShape() {
         return VALUES.get(RANDOM.nextInt(SIZE));
     }
 }

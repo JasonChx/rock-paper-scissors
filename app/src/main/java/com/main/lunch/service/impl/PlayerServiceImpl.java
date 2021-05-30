@@ -20,8 +20,12 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public boolean existsByName(String name){ return playerRepo.existsByName(name); }
+    public boolean existsByName(String name) {
+        return playerRepo.existsByName(name);
+    }
 
     @Override
-    public Player findByName(String name) { return playerRepo.findByName(name); }
+    public Player findByName(String name) {
+        return playerRepo.findByName(name);
+    }
 }
